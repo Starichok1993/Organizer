@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Organizer.Domain", "src\Org
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Organizer.Infrastructure", "src\Organizer.Infrastructure\Organizer.Infrastructure.csproj", "{6683FD20-4CDB-4F93-A59E-199EDFC13C79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Organizer.Applicaiton", "src\Organizer.Applicaiton\Organizer.Applicaiton.csproj", "{E81EF658-118B-4985-815D-FC46B3931C6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Organizer.Application", "src\Organizer.Applicaiton\Organizer.Application.csproj", "{E81EF658-118B-4985-815D-FC46B3931C6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
