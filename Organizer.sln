@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{2DC65606-ED9D-497A-B164-AC3EB474EFC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0AA2C296-7C7C-412D-825A-8C4BD4F608B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Organizer.Web", "src\Organizer.Web\Organizer.Web.csproj", "{29EC80B4-75EA-4E3A-B9BB-678BA396CC23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29EC80B4-75EA-4E3A-B9BB-678BA396CC23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29EC80B4-75EA-4E3A-B9BB-678BA396CC23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29EC80B4-75EA-4E3A-B9BB-678BA396CC23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29EC80B4-75EA-4E3A-B9BB-678BA396CC23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{29EC80B4-75EA-4E3A-B9BB-678BA396CC23} = {0AA2C296-7C7C-412D-825A-8C4BD4F608B8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97A5D841-D904-4262-962F-7E4D5B22DCE0}
+	EndGlobalSection
+EndGlobal
