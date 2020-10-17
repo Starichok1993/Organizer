@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Organizer.Domain.Entities.Base;
 
 namespace Organizer.Infrastructure.Mapping.Base
 {
