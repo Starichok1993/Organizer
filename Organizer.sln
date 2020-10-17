@@ -4,10 +4,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{2DC65606-ED9D-497A-B164-AC3EB474EFC3}"
+	ProjectSection(SolutionItems) = preProject
+		db\createUpdate.bat = db\createUpdate.bat
+		db\ref_data.sql = db\ref_data.sql
+		db\schema.sql = db\schema.sql
+		db\test_data.sql = db\test_data.sql
+		db\update.bat = db\update.bat
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0AA2C296-7C7C-412D-825A-8C4BD4F608B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Organizer.Web", "src\Organizer.Web\Organizer.Web.csproj", "{29EC80B4-75EA-4E3A-B9BB-678BA396CC23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Organizer.Web", "src\Organizer.Web\Organizer.Web.csproj", "{29EC80B4-75EA-4E3A-B9BB-678BA396CC23}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "updates", "updates", "{2379C949-1641-4C9F-AAB0-80CD5A933EAF}"
+	ProjectSection(SolutionItems) = preProject
+		db\updates\v100.sql = db\updates\v100.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +37,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{29EC80B4-75EA-4E3A-B9BB-678BA396CC23} = {0AA2C296-7C7C-412D-825A-8C4BD4F608B8}
+		{2379C949-1641-4C9F-AAB0-80CD5A933EAF} = {2DC65606-ED9D-497A-B164-AC3EB474EFC3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97A5D841-D904-4262-962F-7E4D5B22DCE0}
