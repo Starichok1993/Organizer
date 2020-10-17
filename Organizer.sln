@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "updates", "updates", "{2379
 		db\updates\v100.sql = db\updates\v100.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Organizer.Domain", "src\Organizer.Domain\Organizer.Domain.csproj", "{75142B28-816B-4242-808B-E4BDE2843CF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{29EC80B4-75EA-4E3A-B9BB-678BA396CC23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29EC80B4-75EA-4E3A-B9BB-678BA396CC23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29EC80B4-75EA-4E3A-B9BB-678BA396CC23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75142B28-816B-4242-808B-E4BDE2843CF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75142B28-816B-4242-808B-E4BDE2843CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75142B28-816B-4242-808B-E4BDE2843CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75142B28-816B-4242-808B-E4BDE2843CF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{29EC80B4-75EA-4E3A-B9BB-678BA396CC23} = {0AA2C296-7C7C-412D-825A-8C4BD4F608B8}
 		{2379C949-1641-4C9F-AAB0-80CD5A933EAF} = {2DC65606-ED9D-497A-B164-AC3EB474EFC3}
+		{75142B28-816B-4242-808B-E4BDE2843CF7} = {0AA2C296-7C7C-412D-825A-8C4BD4F608B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97A5D841-D904-4262-962F-7E4D5B22DCE0}
