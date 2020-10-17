@@ -92,5 +92,13 @@ CREATE TABLE db_version (
   Version VARCHAR(32) NOT NULL,
   Description VARCHAR(1024) NOT NULL,
   DateApplied DATETIME NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (Id)
  );
+
+
+ CREATE TABLE to_do (
+  Id int(11) NOT NULL AUTO_INCREMENT,
+  Description text NOT NULL,
+  IsDone bit(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY(Id)
+ ) AUTO_INCREMENT=1; 
