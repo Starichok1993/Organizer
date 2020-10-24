@@ -13,7 +13,6 @@ namespace Organizer.Infrastructure.Mapping.Base
         {
             builder.ToTable(TableName);
             builder.HasKey(e => e.Id);
-            builder.Property(e => e.Id).HasColumnType("int").IsRequired();
         }
     }
 }
