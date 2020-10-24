@@ -5,10 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ITB.CQRS" Version="1.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\packages\Hommy.CQRS\Hommy.CQRS.csproj" />
     <ProjectReference Include="..\Organizer.Domain\Organizer.Domain.csproj" />
   </ItemGroup>
 

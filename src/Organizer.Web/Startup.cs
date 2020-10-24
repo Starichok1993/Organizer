@@ -1,16 +1,24 @@
+using Hommy.ApiResult;
+using Hommy.CQRS;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Organizer.Application;
 using Organizer.Infrastructure;
+using SimpleInjector;
+using System.Text.Json.Serialization;
 
 namespace Organizer.Web
 {
     public class Startup
     {
         private readonly IConfiguration _configuration;
+
+        private readonly Container _container = new Container();
+        
         public Startup(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -20,9 +28,23 @@ namespace Organizer.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.IgnoreNullValues = true;
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                    options.JsonSerializerOptions.Converters.Add(new FailureJsonConverter());
+                });
 
             services.AddSwaggerGen();
+
+            services.AddSimpleInjector(_container, options =>
+            {
+                options.AddAspNetCore().AddControllerActivation();
+            });
+
+            services.AddApiResult();
+
+            services.AddCQRS(_container, new[] { typeof(ApplicationLayer).Assembly });
 
             services.AddDbContext<OrganizerDbContext>(options => 
             {
@@ -36,6 +58,7 @@ namespace Organizer.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSimpleInjector(_container);
 
             app.UseSwagger();
 
@@ -55,6 +78,8 @@ namespace Organizer.Web
             {
                 endpoints.MapDefaultControllerRoute();
             });
+
+            _container.Verify();
         }
     }
 }

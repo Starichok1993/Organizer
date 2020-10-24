@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hommy.ApiResult;
+using Hommy.CQRS;
+using Hommy.ResultModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Organizer.Application.Features.ToDos.Commands;
 using Organizer.Domain.Entities;
 using Organizer.Web.Models;
 
@@ -12,10 +16,12 @@ namespace Organizer.Web.Controllers
     public class ToDoController : ApiControllerBase
     {
         private readonly DbContext _dbContext;
+        private readonly IHandlerDispatcher _handlerDispatcher;
 
-        public ToDoController(DbContext dbContext)
+        public ToDoController(DbContext dbContext, IHandlerDispatcher handlerDispatcher)
         {
             _dbContext = dbContext;
+            _handlerDispatcher = handlerDispatcher;
         }
 
         [HttpGet("todo")]
@@ -27,13 +33,9 @@ namespace Organizer.Web.Controllers
         }
 
         [HttpPost("todo")]
-        public async Task<IActionResult> Add([FromBody] CreateToDoRequest item)
+        public async Task<ApiResult> Add([FromBody] CreateToDoRequest item)
         {
-            var todo = new ToDo(item.Description);
-            await _dbContext.Set<ToDo>().AddAsync(todo);
-            await _dbContext.SaveChangesAsync();
-
-            return Ok(todo.Id);
+            return await _handlerDispatcher.Handle<CreateToDoCommand, int>(new CreateToDoCommand { Description = item.Description }); 
         }
 
         [HttpPost("todo/{id}")]
