@@ -1,29 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
+using Hommy.CQRS;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Organizer.Domain.Entities;
+using Organizer.Application.Features.App.Queries;
 
 namespace Organizer.Web.Controllers
 {
     
     public class AppController : ApiControllerBase
     {
-        private readonly DbContext _dbContext;
+        
 
-        public AppController(DbContext dbContext)
+        private readonly IHandlerDispatcher _handlerDispatcher;
+
+        public AppController(IHandlerDispatcher handlerDispatcher)
         {
-            _dbContext = dbContext;
+            _handlerDispatcher = handlerDispatcher;
         }
 
         [HttpGet("ping")]        
         public async Task<string> Ping()
         {
+            var version = (await _handlerDispatcher.Handle<PingQuery, string>(new PingQuery())).Data;
 
-            return (await _dbContext.Set<DbVersion>().FirstAsync()).Version;
+            return version;
         }
     }
 }

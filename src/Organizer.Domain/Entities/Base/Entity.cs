@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Organizer.Domain.Entities.Base
+﻿namespace Organizer.Domain.Entities.Base
 {
 
     public interface IEntity

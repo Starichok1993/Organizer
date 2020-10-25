@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Hommy.ApiResult;
 using Hommy.CQRS;
-using Hommy.ResultModel;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Organizer.Application.Features.ToDos.Commands;
 using Organizer.Application.Features.ToDos.Queries;
 using Organizer.Domain.Entities;

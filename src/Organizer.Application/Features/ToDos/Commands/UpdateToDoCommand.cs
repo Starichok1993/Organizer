@@ -11,7 +11,6 @@ namespace Organizer.Application.Features.ToDos.Commands
         public int Id { get; set; }
         public string Description { get; set; }
         public bool IsDone { get; set; }
-
     }
 
     public class UpdateToDoCommandHandler : CommandHandlerBase<UpdateToDoCommand>
