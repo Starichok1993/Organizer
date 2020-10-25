@@ -35,31 +35,25 @@ namespace Organizer.Web.Controllers
         [HttpPost("todo")]
         public async Task<ApiResult> Add([FromBody] CreateToDoRequest item)
         {
-            return await _handlerDispatcher.Handle<CreateToDoCommand, int>(new CreateToDoCommand { Description = item.Description }); 
+            return await _handlerDispatcher.Handle<CreateToDoCommand, int>(new CreateToDoCommand {
+                Description = item.Description
+            });
         }
 
         [HttpPost("todo/{id}")]
         public async Task<ApiResult> Update(int id, [FromBody] UpdateToDoRequest item)
         {
-            return await _handlerDispatcher.Handle<UpdateToDoCommand>(new UpdateToDoCommand {
-                Id = id, Description = item.Description, IsDone = item.IsDone });
+            return await _handlerDispatcher.Handle(new UpdateToDoCommand {
+                Id = id,
+                Description = item.Description,
+                IsDone = item.IsDone
+            });
         }
 
         [HttpDelete("todo/{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<ApiResult> Delete(int id)
         {
-            var todo = await _dbContext.Set<ToDo>().FindAsync(id);
-
-            if (todo == null)
-            {
-                return NotFound(id);
-            }
-
-            _dbContext.Remove(todo);
-
-            await _dbContext.SaveChangesAsync();
-
-            return Ok();
+            return await _handlerDispatcher.Handle(new DeleteToDoCommand { Id = id });
         }
     }
 }

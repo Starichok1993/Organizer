@@ -6,25 +6,22 @@ using System.Threading.Tasks;
 
 namespace Organizer.Application.Features.ToDos.Commands
 {
-    public class UpdateToDoCommand : CommandBase
+    public class DeleteToDoCommand : CommandBase
     {
         public int Id { get; set; }
-        public string Description { get; set; }
-        public bool IsDone { get; set; }
-
     }
 
-    public class UpdateToDoCommandHandler : CommandHandlerBase<UpdateToDoCommand>
+    public class DeleteToDoCommandHandler : CommandHandlerBase<DeleteToDoCommand>
     {
         private readonly DbContext _dbContext;
 
-        public UpdateToDoCommandHandler(DbContext dbContext)
+        public DeleteToDoCommandHandler(DbContext dbContext)
         {
             _dbContext = dbContext;
         }
-
-        public async override Task<Result> Handle(UpdateToDoCommand input)
+        public async override Task<Result> Handle(DeleteToDoCommand input)
         {
+
             var todo = await _dbContext.Set<ToDo>().FindAsync(input.Id);
 
             if (todo == null)
@@ -32,7 +29,7 @@ namespace Organizer.Application.Features.ToDos.Commands
                 return Result.NotFound(input.Id.ToString());
             }
 
-            todo.Update(input.Description, input.IsDone);
+            _dbContext.Remove(todo);
 
             await _dbContext.SaveChangesAsync();
 

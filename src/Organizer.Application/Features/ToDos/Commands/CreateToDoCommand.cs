@@ -2,9 +2,6 @@
 using Hommy.ResultModel;
 using Microsoft.EntityFrameworkCore;
 using Organizer.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Organizer.Application.Features.ToDos.Commands
