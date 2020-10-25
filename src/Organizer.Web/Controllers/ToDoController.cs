@@ -39,20 +39,10 @@ namespace Organizer.Web.Controllers
         }
 
         [HttpPost("todo/{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] UpdateToDoRequest item)
+        public async Task<ApiResult> Update(int id, [FromBody] UpdateToDoRequest item)
         {
-            var todo = await _dbContext.Set<ToDo>().FindAsync(id);
-
-            if(todo == null)
-            {
-                return NotFound(id);
-            }
-
-            todo.Update(item.Description, item.IsDone);
-
-            await _dbContext.SaveChangesAsync();
-           
-            return Ok();
+            return await _handlerDispatcher.Handle<UpdateToDoCommand>(new UpdateToDoCommand {
+                Id = id, Description = item.Description, IsDone = item.IsDone });
         }
 
         [HttpDelete("todo/{id}")]

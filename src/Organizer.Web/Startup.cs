@@ -79,7 +79,7 @@ namespace Organizer.Web
                 endpoints.MapDefaultControllerRoute();
             });
 
-            _container.Verify();
+            _container.Verify(); //Should be last command
         }
     }
 }
