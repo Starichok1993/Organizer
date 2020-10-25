@@ -8,6 +8,7 @@ using Hommy.ResultModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Organizer.Application.Features.ToDos.Commands;
+using Organizer.Application.Features.ToDos.Queries;
 using Organizer.Domain.Entities;
 using Organizer.Web.Models;
 
@@ -15,21 +16,17 @@ namespace Organizer.Web.Controllers
 {
     public class ToDoController : ApiControllerBase
     {
-        private readonly DbContext _dbContext;
         private readonly IHandlerDispatcher _handlerDispatcher;
 
-        public ToDoController(DbContext dbContext, IHandlerDispatcher handlerDispatcher)
+        public ToDoController(IHandlerDispatcher handlerDispatcher)
         {
-            _dbContext = dbContext;
             _handlerDispatcher = handlerDispatcher;
         }
 
         [HttpGet("todo")]
-        public async Task<IActionResult> GetAll ()
+        public async Task<ApiResult> GetAll ()
         {
-            var todos = await _dbContext.Set<ToDo>().ToListAsync();
-
-            return Ok(todos);
+            return await _handlerDispatcher.Handle<GetAllToDoQuery, List<ToDo>>(new GetAllToDoQuery());
         }
 
         [HttpPost("todo")]
