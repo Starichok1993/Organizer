@@ -1,4 +1,3 @@
-using FluentValidation;
 using Hommy.ApiResult;
 using Hommy.CQRS;
 using Microsoft.AspNetCore.Builder;
@@ -9,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Organizer.Application;
-using Organizer.Application.Features.ToDos.Commands;
 using Organizer.Infrastructure;
 using SimpleInjector;
 using System.Text.Json.Serialization;

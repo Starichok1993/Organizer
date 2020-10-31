@@ -36,5 +36,8 @@
       }
     }
   },
-  "defaultProject": "organizerapp"
+  "defaultProject": "organizerapp",
+  "cli": {
+    "analytics": false
+  }
 }
