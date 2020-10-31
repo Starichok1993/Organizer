@@ -27,13 +27,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Organizer.Infrastructure", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Organizer.Application", "src\Organizer.Application\Organizer.Application.csproj", "{E81EF658-118B-4985-815D-FC46B3931C6D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{FAD22D49-1ADB-4000-86EC-063B48F33FE4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hommy-packages", "hommy-packages", "{FAD22D49-1ADB-4000-86EC-063B48F33FE4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hommy.ResultModel", "packages\Hommy.Result\Hommy.ResultModel.csproj", "{9BD01648-1F59-4CE1-A14E-99FD62ACD534}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hommy.ResultModel", "hommy-packages\Hommy.Result\Hommy.ResultModel.csproj", "{9BD01648-1F59-4CE1-A14E-99FD62ACD534}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hommy.ApiResult", "packages\Hommy.ApiResult\Hommy.ApiResult.csproj", "{80975CB7-F236-4B0F-AF42-BE7D4C6650BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hommy.ApiResult", "hommy-packages\Hommy.ApiResult\Hommy.ApiResult.csproj", "{80975CB7-F236-4B0F-AF42-BE7D4C6650BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hommy.CQRS", "packages\Hommy.CQRS\Hommy.CQRS.csproj", "{97DBCD0D-590C-448E-90F6-D5F5593213C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hommy.CQRS", "hommy-packages\Hommy.CQRS\Hommy.CQRS.csproj", "{97DBCD0D-590C-448E-90F6-D5F5593213C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

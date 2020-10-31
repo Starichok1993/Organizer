@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\packages\Hommy.ApiResult\Hommy.ApiResult.csproj" />
+    <ProjectReference Include="..\..\hommy-packages\Hommy.ApiResult\Hommy.ApiResult.csproj" />
     <ProjectReference Include="..\Organizer.Infrastructure\Organizer.Infrastructure.csproj" />
   </ItemGroup>
 
