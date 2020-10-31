@@ -14,5 +14,15 @@
         /// Message
         /// </summary>
         public string Message { get; set; }
+
+        public ValidationError()
+        { 
+        }
+
+        public ValidationError(string field, string message)
+        {
+            Field = field;
+            Message = message;
+        }
     }
 }

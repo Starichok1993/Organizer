@@ -1,4 +1,6 @@
-﻿using Hommy.CQRS;
+﻿using FluentValidation;
+using FluentValidation.Validators;
+using Hommy.CQRS;
 using Hommy.ResultModel;
 using Microsoft.EntityFrameworkCore;
 using Organizer.Domain.Entities;
@@ -11,6 +13,15 @@ namespace Organizer.Application.Features.ToDos.Commands
         public int Id { get; set; }
         public string Description { get; set; }
         public bool IsDone { get; set; }
+    }
+
+    public class UpdateToDoCommandValidator : AbstractValidator<UpdateToDoCommand>
+    {
+        public UpdateToDoCommandValidator()
+        {
+            RuleFor(x => x.Description).NotEmpty();
+            RuleFor(x => x.Id).NotEmpty();
+        }
     }
 
     public class UpdateToDoCommandHandler : CommandHandlerBase<UpdateToDoCommand>

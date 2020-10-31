@@ -1,4 +1,5 @@
-﻿using Hommy.CQRS;
+﻿using FluentValidation;
+using Hommy.CQRS;
 using Hommy.ResultModel;
 using Microsoft.EntityFrameworkCore;
 using Organizer.Domain.Entities;
@@ -9,6 +10,15 @@ namespace Organizer.Application.Features.ToDos.Commands
     public class DeleteToDoCommand : CommandBase
     {
         public int Id { get; set; }
+    }
+
+
+    public class DeleteToDoCommandValidator : AbstractValidator<DeleteToDoCommand>
+    {
+        public DeleteToDoCommandValidator()
+        {
+            RuleFor(x => x.Id).NotEmpty();
+        }
     }
 
     public class DeleteToDoCommandHandler : CommandHandlerBase<DeleteToDoCommand>
@@ -26,7 +36,7 @@ namespace Organizer.Application.Features.ToDos.Commands
 
             if (todo == null)
             {
-                return Result.NotFound(input.Id.ToString());
+                return Result.NotFound($"ToDo with Id: {input.Id} doesn't exist!");
             }
 
             _dbContext.Remove(todo);
