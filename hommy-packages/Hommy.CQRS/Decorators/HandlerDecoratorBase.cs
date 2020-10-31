@@ -10,10 +10,10 @@ namespace Hommy.CQRS.Decorators
     public abstract class HandlerDecoratorBase<TIn, TOut> : IHandler<TIn, Task<Result<TOut>>> 
         where TIn : IRequest<Task<Result<TOut>>>
     {
-        protected readonly IHandler<TIn, Task<Result<TOut>>> _decorated; 
+        protected readonly IHandler<TIn, Task<Result<TOut>>> Decorated; 
         protected HandlerDecoratorBase(IHandler<TIn, Task<Result<TOut>>> decorated)
         {
-            _decorated = decorated;
+            Decorated = decorated;
         }
 
         public abstract Task<Result<TOut>> Handle(TIn input);
@@ -22,10 +22,10 @@ namespace Hommy.CQRS.Decorators
     public abstract class HandlerDecoratorBase<TIn> : IHandler<TIn, Task<Result>>
         where TIn : IRequest<Task<Result>>
     {
-        protected readonly IHandler<TIn, Task<Result>> _decorated;
+        protected readonly IHandler<TIn, Task<Result>> Decorated;
         protected HandlerDecoratorBase(IHandler<TIn, Task<Result>> decorated)
         {
-            _decorated = decorated;
+            Decorated = decorated;
         }
 
         public abstract Task<Result> Handle(TIn input);

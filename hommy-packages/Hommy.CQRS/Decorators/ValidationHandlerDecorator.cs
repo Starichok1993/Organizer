@@ -22,16 +22,19 @@ namespace Hommy.CQRS.Decorators
         public override async Task<Result<TOut>> Handle(TIn input)
         {
             var context = new ValidationContext<TIn>(input);
-            
-            foreach(var validator in _validators)
+
+            var failures = _validators
+                .Select(async v => await v.ValidateAsync(context))
+                .SelectMany(result => result.Result.Errors)
+                .Where(f => f != null)
+                .ToList();
+
+            if (failures.Any())
             {
-                var result = validator.Validate(context);
-                if (!result.IsValid)
-                    return await Task.FromResult( Result.ValidationError(result.Errors.Select(e=>new ValidationError( e.PropertyName,  e.ErrorMessage)).ToArray()));
-                
+                return Result.ValidationError(failures.Select(f => new ValidationError { Field = f.PropertyName, Message = f.ErrorMessage }).ToArray());
             }
 
-            return await _decorated.Handle(input);
+            return await Decorated.Handle(input);
         }
     }
 
@@ -50,14 +53,18 @@ namespace Hommy.CQRS.Decorators
         {
             var context = new ValidationContext<TIn>(input);
 
-            foreach (var validator in _validators)
+            var failures = _validators
+                .Select(async v => await v.ValidateAsync(context))
+                .SelectMany(result => result.Result.Errors)
+                .Where(f => f != null)
+                .ToList();
+
+            if (failures.Any())
             {
-                var result = validator.Validate(context);
-                if (!result.IsValid)
-                    return await Task.FromResult(Result.ValidationError(result.Errors.Select(e => new ValidationError(e.PropertyName, e.ErrorMessage)).ToArray()));
+                return Result.ValidationError(failures.Select(f => new ValidationError { Field = f.PropertyName, Message = f.ErrorMessage }).ToArray());
             }
 
-            return await _decorated.Handle(input);
+            return await Decorated.Handle(input);
         }
     }
 }
