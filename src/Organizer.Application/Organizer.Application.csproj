@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\packages\Hommy.CQRS\Hommy.CQRS.csproj" />
+    <ProjectReference Include="..\..\hommy-packages\Hommy.CQRS\Hommy.CQRS.csproj" />
     <ProjectReference Include="..\Organizer.Domain\Organizer.Domain.csproj" />
   </ItemGroup>
 
