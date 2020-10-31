@@ -33,11 +33,11 @@ namespace Organizer.Web.Controllers
             });
         }
 
-        [HttpPost("todo/{id}")]
-        public async Task<ApiResult> Update(int id, [FromBody] UpdateToDoRequest item)
+        [HttpPut("todo")]
+        public async Task<ApiResult> Update([FromBody] UpdateToDoRequest item)
         {
             return await _handlerDispatcher.Handle(new UpdateToDoCommand {
-                Id = id,
+                Id = item.Id,
                 Description = item.Description,
                 IsDone = item.IsDone
             });
