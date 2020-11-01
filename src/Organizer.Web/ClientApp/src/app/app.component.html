@@ -1,9 +1,10 @@
 ﻿
-<div class="container">
+<div *ngIf="loading$ | async">Loading...</div>
+<div *ngIf="!(loading$ | async)" class="container">
     <div class="row justify-content-md-center">
         <div class="col-sm-6">
             <h1>Your ToDos!</h1>
-            <todo *ngFor="let todo of todos" 
+            <todo *ngFor="let todo of todos$ | async" 
                 [todo]="todo" 
                 (statusChanged)="changeStatus($event)"
                 (updated)="changeDescription($event)"

@@ -26,7 +26,7 @@ export class TodoComponent {
 
   update(){
     this.disabled = true;
-    this.updated.emit(this.todo);    
+    this.updated.emit(this.todo);
   }
 
 }
