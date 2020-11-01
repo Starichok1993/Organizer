@@ -1,5 +1,18 @@
-<div>
-    <input type="checkbox" [ngModel]="todo.isDone" (change)="changeStatus(todo)" />
-    <input type="text" [(ngModel)]="todo.description" (keyup.enter)="changeDescrition(todo)" title="Press Enter to save">
-    <button (click)="remove(todo)">Remove</button>
+<div class="input-group input-group-lg mb-4">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            <input type="checkbox" [ngModel]="todo.isDone" (change)="changeStatus()"/>
+        </div>        
+    </div>
+    <input class="form-control" [class.strikethrough]="todo.isDone" type="text" 
+        [(ngModel)]="todo.description" 
+        [readonly]="disabled"
+        (click)="todo.isDone ? disabled = true : disabled = false"
+        (blur)="update()"
+        (keyup.enter)="update()"
+        title="Press Enter to save">
+    
+    <div class="input-group-append">
+        <button class="btn btn-primary" (click)="remove()">Remove</button>    
+    </div>
 </div>

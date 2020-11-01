@@ -98,7 +98,7 @@ CREATE TABLE db_version (
 
  CREATE TABLE to_do (
   Id int(11) NOT NULL AUTO_INCREMENT,
-  Description text NOT NULL,
+  Description text DEFAULT NULL,
   IsDone bit(1) NOT NULL DEFAULT 0,
   PRIMARY KEY(Id)
  ) AUTO_INCREMENT=1; 

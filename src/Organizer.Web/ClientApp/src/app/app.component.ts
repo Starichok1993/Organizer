@@ -18,7 +18,6 @@ export class AppComponent {
     }
 
     changeStatus(todo: ToDo) {
-        todo.isDone = !todo.isDone;
         this.toDoService.updateToDo(todo).subscribe();
     }
 
@@ -30,7 +29,16 @@ export class AppComponent {
             }
         });          
     }
-    changeDescrition(todo: ToDo) {
+
+    changeDescription(todo: ToDo) {
         this.toDoService.updateToDo(todo).subscribe();
+    }
+
+    addTodo(){
+        var todo = new ToDo();
+        this.toDoService.createToDo(todo).subscribe((result) => {
+            todo.id = result.data;
+            this.todos.push(todo);
+        })
     }
 }
