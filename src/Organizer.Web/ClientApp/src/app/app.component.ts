@@ -4,7 +4,8 @@ import { ToDo } from './todo';
 
 @Component({
     selector: 'app',
-    templateUrl: './app.component.html'
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
     name = '';
@@ -29,27 +30,7 @@ export class AppComponent {
             }
         });          
     }
-    changeDescrition(event: Event,todo: ToDo) {
-        //todo.description = (event.target as HTMLInputElement).value;
-
-        let inputCtrl = (event.target as HTMLInputElement);
-        //let updatedToDo = new ToDo();
-
-        //updatedToDo.id = todo.id;
-        //updatedToDo.description = inputCtrl.value;
-        //updatedToDo.isDone = todo.isDone;
-        
-        //this.toDoService.updateToDo(updatedToDo).subscribe((result) => {
-        //    if (result.isSuccess) {
-        //        todo.description = updatedToDo.description;
-        //    }
-        //    else {
-        //        console.log(todo.description);
-        //        inputCtrl.value = todo.description;
-        //    }
-        //});
-
-        todo.description = inputCtrl.value;
+    changeDescrition(todo: ToDo) {
         this.toDoService.updateToDo(todo).subscribe();
     }
 }

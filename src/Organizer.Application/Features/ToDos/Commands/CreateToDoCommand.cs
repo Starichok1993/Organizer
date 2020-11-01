@@ -12,14 +12,6 @@ namespace Organizer.Application.Features.ToDos.Commands
         public string Description { get; set; }
     }
 
-    public class CreateToDoCommandValitator : AbstractValidator<CreateToDoCommand>
-    {
-        public CreateToDoCommandValitator()
-        {
-            RuleFor(x => x.Description).NotEmpty();
-        }
-    }
-
     public class CreateToDoCommandHandler : CommandHandlerBase<CreateToDoCommand, int>
     {
         private readonly DbContext _dbContext;

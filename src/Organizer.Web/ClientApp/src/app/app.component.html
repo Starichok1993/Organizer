@@ -1,11 +1,7 @@
-﻿<label>Введите имя:</label>
-<input [(ngModel)]="name" placeholder="name">
-<h2>Добро пожаловать {{name}}!</h2>
-
-
-{{todos | json}}
-<div *ngFor ="let todo of todos">    
-    <input type="checkbox" [ngModel]="todo.isDone" (change)="changeStatus(todo)"/>
-    <input type="text" [ngModel]="todo.description" (keyup.enter)="changeDescrition($event, todo)" title="Press Enter to save">
-    <button (click)="remove(todo)">Remove</button>
+﻿
+<div class="container">
+    {{todos | json}}
+    <div *ngFor="let todo of todos">
+       
+    </div>
 </div>

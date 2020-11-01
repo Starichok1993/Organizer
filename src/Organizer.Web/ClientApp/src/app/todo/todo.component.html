@@ -1,0 +1,5 @@
+<div>
+    <input type="checkbox" [ngModel]="todo.isDone" (change)="changeStatus(todo)" />
+    <input type="text" [(ngModel)]="todo.description" (keyup.enter)="changeDescrition(todo)" title="Press Enter to save">
+    <button (click)="remove(todo)">Remove</button>
+</div>

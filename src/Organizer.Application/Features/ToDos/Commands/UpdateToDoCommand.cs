@@ -19,7 +19,6 @@ namespace Organizer.Application.Features.ToDos.Commands
     {
         public UpdateToDoCommandValidator()
         {
-            RuleFor(x => x.Description).NotEmpty();
             RuleFor(x => x.Id).NotEmpty();
         }
     }
